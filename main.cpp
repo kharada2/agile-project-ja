@@ -10,19 +10,26 @@ int main() {
   std::cout << "Enter a calculation: ";
   std::cin >> num1 >> symbol >> num2;
 
-  if (symbol == '+') {
-    out = MathOps::addition(num1, num2);
-  } else if (symbol == '-') {
-    out = MathOps::subtraction(num1, num2);
-  } else if (symbol == '*') {
-    out = MathOps::multiplication(num1, num2);
-  } else if (symbol == '/') {
-    out = MathOps::division(num1, num2);
-  } else {
-    std::cout << "Input is invalid." << std::endl;
+  try {
+    if (symbol == '+') {
+      out = MathOps::addition(num1, num2);
+    } else if (symbol == '-') {
+      out = MathOps::subtraction(num1, num2);
+    } else if (symbol == '*') {
+      out = MathOps::multiplication(num1, num2);
+    } else if (symbol == '/') {
+      out = MathOps::division(num1, num2);
+    } else if (symbol == 'r') {
+      out = MathOps::sqrtroot(num1);
+    } else {
+      std::cout << "Input is invalid." << std::endl;
+    }
+    
+    std::cout << "Result: " << out << std::endl;
+    
+  } catch (const std::runtime_error& e) {
+    std::cerr << "Error: " << e.what() << std::endl;
   }
-
-  std::cout << "Result: " << out << std::endl;
 
   return 0;
 }
