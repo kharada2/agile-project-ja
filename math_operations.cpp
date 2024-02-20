@@ -21,4 +21,8 @@ float sqrtroot(float num1) {
   return sqrt(num1);
 }
 
+float exponentiation(float num1, float num2)
+{
+    return std::pow(num1, num2);
+}
 }  // namespace MathOps

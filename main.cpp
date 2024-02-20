@@ -21,6 +21,8 @@ int main() {
       out = MathOps::division(num1, num2);
     } else if (symbol == 'r') {
       out = MathOps::sqrtroot(num1);
+    } else if (symbol == '^'){
+      out = MathOps::exponentiation(num1, num2);
     } else {
       std::cout << "Input is invalid." << std::endl;
     }
@@ -30,6 +32,6 @@ int main() {
   } catch (const std::runtime_error& e) {
     std::cerr << "Error: " << e.what() << std::endl;
   }
-
+  
   return 0;
 }
