@@ -15,7 +15,7 @@ float division(float num1, float num2) {
 }
 
 float sqrtroot(float num1) {
-  if(num1 < 0) {
+  if(num1 < 0.0) {
     throw std::runtime_error("Negative value in the root.");
   }
   return sqrt(num1);
