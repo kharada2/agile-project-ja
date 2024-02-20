@@ -19,9 +19,8 @@ int main() {
   } else if (symbol == '/') {
     out = MathOps::division(num1, num2);
   } else if (symbol == '^'){
-    out = MathOps::index(num1, num2);
-  }
-  else {
+    out = MathOps::exponentiation(num1, num2);
+  } else {
     std::cout << "Input is invalid." << std::endl;
   }
 
