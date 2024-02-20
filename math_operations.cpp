@@ -12,4 +12,11 @@ float division(float num1, float num2) {
   }
   return num1 / num2;
 }
+float index(float num1, float num2) {
+  float ans = num1;
+  for(int i=1; i<num2; i++){
+    ans = ans * num1;
+  }
+  return ans;
+}
 }  // namespace MathOps
