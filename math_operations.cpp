@@ -2,6 +2,7 @@
 
 #include <stdexcept>
 #include <math.h>
+#include <iostream>
 
 namespace MathOps {
 float addition(float num1, float num2) { return num1 + num2; }
@@ -24,5 +25,49 @@ float sqrtroot(float num1) {
 float exponentiation(float num1, float num2)
 {
     return std::pow(num1, num2);
+}
+
+float execute_calculation(float num1, char symbol, float num2)
+{
+  float out{0};
+  try
+  {
+    if (symbol == '+')
+    {
+      out = addition(num1, num2);
+    }
+    else if (symbol == '-')
+    {
+      out = subtraction(num1, num2);
+    }
+    else if (symbol == '*')
+    {
+      out = multiplication(num1, num2);
+    }
+    else if (symbol == '/')
+    {
+      out = division(num1, num2);
+    }
+    else if (symbol == 'r')
+    {
+      out = sqrtroot(num1);
+    }
+    else if (symbol == '^')
+    {
+      out = exponentiation(num1, num2);
+    }
+    else
+    {
+      std::cout << "Input symbol is invalid. Exit calculation." << std::endl;
+      exit(1);
+    }
+    std::cout << "Current Result: " << out << std::endl;
+  }
+  catch (const std::runtime_error &e)
+  {
+    std::cerr << "Error: " << e.what() << std::endl;
+    exit(1);
+  }
+  return out;
 }
 }  // namespace MathOps
