@@ -42,10 +42,26 @@ void test_division() {
   return;
 }
 
+void test_sqrtroot() {
+    // 通常の平方根のテスト
+    assert(std::abs(MathOps::sqrtroot(16.0) - 4.0) <= FLT_EPSILON);
+    assert(std::abs(MathOps::sqrtroot(0.0)) <= FLT_EPSILON);
+
+    // エラーメッセージの確認
+    try {
+      float result = MathOps::sqrtroot(-1.0);
+      assert(false);
+    } catch (const std::runtime_error& e) {
+      assert(std::string(e.what()) == "Negative value in the root.");
+    }
+    return;
+}
+
 int main() {
   test_addition();
   test_subtraction();
   test_multiplication();
   test_division();
+  test_sqrtroot();
   return 0;
 }
