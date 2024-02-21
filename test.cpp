@@ -49,19 +49,23 @@ void test_division()
   return;
 }
 
-void test_sqrtroot() {
-    // 通常の平方根のテスト
-    assert(std::abs(MathOps::sqrtroot(16.0) - 4.0) <= FLT_EPSILON);
-    assert(std::abs(MathOps::sqrtroot(0.0)) <= FLT_EPSILON);
+void test_sqrtroot()
+{
+  // 通常の平方根のテスト
+  assert(std::abs(MathOps::sqrtroot(16.0) - 4.0) <= FLT_EPSILON);
+  assert(std::abs(MathOps::sqrtroot(0.0)) <= FLT_EPSILON);
 
-    // エラーメッセージの確認
-    try {
-      float result = MathOps::sqrtroot(-1.0);
-      assert(false);
-    } catch (const std::runtime_error& e) {
-      assert(std::string(e.what()) == "Negative value in the root.");
-    }
-    return;
+  // エラーメッセージの確認
+  try
+  {
+    float result = MathOps::sqrtroot(-1.0);
+    assert(false);
+  }
+  catch (const std::runtime_error &e)
+  {
+    assert(std::string(e.what()) == "Negative value in the root.");
+  }
+  return;
 }
 
 void test_execute_calculation()
@@ -84,6 +88,14 @@ void test_execute_calculation()
   return;
 }
 
+void test_exponentiation()
+{
+  assert(std::abs(MathOps::exponentiation(2.0, 3.0) - 8.0) <= FLT_EPSILON);
+  assert(std::abs(MathOps::exponentiation(2.0, 0.0) - 1.0) <= FLT_EPSILON);
+
+  return;
+}
+
 int main()
 {
   test_addition();
@@ -92,5 +104,9 @@ int main()
   test_division();
   test_sqrtroot();
   test_execute_calculation();
+  test_exponentiation();
+
+  std::cout << "Pass!" << std::endl;
+
   return 0;
 }
