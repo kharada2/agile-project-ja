@@ -4,34 +4,37 @@
 #include <math.h>
 #include <iostream>
 
-namespace MathOps {
-float addition(float num1, float num2) { return num1 + num2; }
-float subtraction(float num1, float num2) { return num1 - num2; }
-float multiplication(float num1, float num2) { return num1 * num2; }
-float division(float num1, float num2) {
-  if (num2 == 0) {
-    throw std::runtime_error("Division by zero");
-  }
-  return num1 / num2;
-}
-
-float sqrtroot(float num1) {
-  if(num1 < 0.0) {
-    throw std::runtime_error("Negative value in the root.");
-  }
-  return sqrt(num1);
-}
-
-float exponentiation(float num1, float num2)
+namespace MathOps
 {
-    return std::pow(num1, num2);
-}
-
-float execute_calculation(float num1, char symbol, float num2)
-{
-  float out{0};
-  try
+  float addition(float num1, float num2) { return num1 + num2; }
+  float subtraction(float num1, float num2) { return num1 - num2; }
+  float multiplication(float num1, float num2) { return num1 * num2; }
+  float division(float num1, float num2)
   {
+    if (num2 == 0)
+    {
+      throw std::runtime_error("Division by zero");
+    }
+    return num1 / num2;
+  }
+
+  float sqrtroot(float num1)
+  {
+    if (num1 < 0.0)
+    {
+      throw std::runtime_error("Negative value in the root.");
+    }
+    return sqrt(num1);
+  }
+
+  float exponentiation(float num1, float num2)
+  {
+    return std::pow(num1, num2);
+  }
+
+  float execute_calculation(float num1, char symbol, float num2)
+  {
+    float out{0};
     if (symbol == '+')
     {
       out = addition(num1, num2);
@@ -58,16 +61,8 @@ float execute_calculation(float num1, char symbol, float num2)
     }
     else
     {
-      std::cout << "Input symbol is invalid. Exit calculation." << std::endl;
-      exit(1);
+      throw std::runtime_error("Input symbol is invalid.");
     }
-    std::cout << "Current Result: " << out << std::endl;
+    return out;
   }
-  catch (const std::runtime_error &e)
-  {
-    std::cerr << "Error: " << e.what() << std::endl;
-    exit(1);
-  }
-  return out;
-}
-}  // namespace MathOps
+} // namespace MathOps
